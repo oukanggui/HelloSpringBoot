@@ -44,12 +44,6 @@
             <version>2.2.0</version>
         </dependency>
 
-        <!--集成Spring Security做权限和授权认证-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>

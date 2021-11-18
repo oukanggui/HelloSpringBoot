@@ -24,8 +24,14 @@ public interface UserMapper {
     /**
      * 通过用户id查询User对象
      */
-    @Select("select * from tb_user where id =#{id}")
+    @Select("select * from tb_user where id = #{id}")
     User queryUserById(int id);
+
+    /**
+     * 根据用户名查找用户信息
+     */
+    @Select("select * from tb_user where userName = #{userName}")
+    User queryUserByName(String userName);
 
     /**
      * 添加用户

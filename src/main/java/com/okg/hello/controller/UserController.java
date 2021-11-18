@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/user")
 public class UserController {
     // 日志输出
-    Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserServiceImpl userService;
@@ -28,7 +28,7 @@ public class UserController {
     @GetMapping(value = "/getUserList")
     public CommonResponse getUserList() {
         logger.info("getUserList");
-        return CommonResponse.successResponse(userService.queryAllUsers());
+        return userService.queryAllUsers();
     }
 
     /**
@@ -39,19 +39,31 @@ public class UserController {
     @GetMapping(value = "/getUserInfo")
     public CommonResponse getUserInfo(@RequestParam("id") Integer id) {
         logger.info("getUserInfo，id = {}", id);
-        return CommonResponse.successResponse(userService.queryUserById(id));
+        return userService.queryUserById(id);
     }
 
     /**
-     * 添加用户
+     * 登录
      *
      * @param user
      * @return
      */
-    @PostMapping(value = "/add")
-    public CommonResponse addUser(User user) {
-        logger.info("addUser：{}", user.toString());
-        return CommonResponse.successResponse(userService.addUser(user));
+    @PostMapping(value = "/login")
+    public CommonResponse login(User user) {
+        logger.info("login：{}", user.toString());
+        return userService.login(user);
+    }
+
+    /**
+     * 注册
+     *
+     * @param user
+     * @return
+     */
+    @PostMapping(value = "/register")
+    public CommonResponse register(User user) {
+        logger.info("register：{}", user.toString());
+        return userService.register(user);
     }
 
 

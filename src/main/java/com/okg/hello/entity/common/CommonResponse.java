@@ -36,9 +36,21 @@ public class CommonResponse {
     }
 
     public static CommonResponse successResponse(Object data) {
+        return successResponse("success", data);
+    }
+
+    public static CommonResponse successResponse(String msg, Object data) {
+        return createResponse(200, msg, data);
+    }
+
+    public static CommonResponse createResponse(Integer code, String msg) {
+        return createResponse(code, msg, null);
+    }
+
+    public static CommonResponse createResponse(Integer code, String msg, Object data) {
         CommonResponse commonResponse = new CommonResponse();
-        commonResponse.setCode(200);
-        commonResponse.setMsg("success");
+        commonResponse.setCode(code);
+        commonResponse.setMsg(msg);
         commonResponse.setData(data);
         return commonResponse;
     }
