@@ -1,4 +1,4 @@
-package com.okg.hello.entity.common;
+package com.okg.hello.dao.entity;
 
 /**
  * 统一响应类

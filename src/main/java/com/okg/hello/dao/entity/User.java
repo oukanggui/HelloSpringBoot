@@ -1,4 +1,4 @@
-package com.okg.hello.entity;
+package com.okg.hello.dao.entity;
 
 /**
  * 用户实体类，并完成实体类与数据库user表的映射

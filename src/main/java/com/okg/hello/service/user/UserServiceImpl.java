@@ -1,8 +1,8 @@
 package com.okg.hello.service.user;
 
-import com.okg.hello.entity.User;
-import com.okg.hello.entity.common.CommonResponse;
-import com.okg.hello.mapper.UserMapper;
+import com.okg.hello.dao.entity.User;
+import com.okg.hello.dao.entity.CommonResponse;
+import com.okg.hello.dao.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public CommonResponse queryUserById(int id) {
+    public CommonResponse queryUser(int id) {
         return CommonResponse.successResponse(userMapper.queryUserById(id));
     }
 
@@ -72,6 +72,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public CommonResponse deleteUser(int id) {
+        userMapper.deleteUser(id);
         return CommonResponse.successResponse(null);
     }
 }

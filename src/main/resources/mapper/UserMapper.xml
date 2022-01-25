@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.okg.hello.dao.mapper.UserMapper">
+    <select id="queryAllUsers" resultType="com.okg.hello.dao.entity.User">
+        select *
+        from tb_user
+    </select>
+    <select id="queryUserById"
+            parameterType="java.lang.Integer"
+            resultType="com.okg.hello.dao.entity.User">
+        select *
+        from tb_user
+        where id = #{id}
+    </select>
+    <select id="queryUserByName"
+            parameterType="java.lang.String"
+            resultType="com.okg.hello.dao.entity.User">
+        select *
+        from tb_user
+        where userName = #{userName}
+    </select>
+    <insert id="addUser" parameterType="com.okg.hello.dao.entity.User">
+        insert into tb_user(userName, password)
+        values (#{userName}, #{password})
+    </insert>
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete
+        from tb_user
+        where id = #{id}
+    </delete>
+</mapper>
