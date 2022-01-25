@@ -35,19 +35,23 @@ public class CommonResponse {
         this.data = data;
     }
 
-    public static CommonResponse successResponse(Object data) {
-        return successResponse("success", data);
+    public static CommonResponse success(Object data) {
+        return success("success", data);
     }
 
-    public static CommonResponse successResponse(String msg, Object data) {
-        return createResponse(200, msg, data);
+    public static CommonResponse success(String msg, Object data) {
+        return response(200, msg, data);
     }
 
-    public static CommonResponse createResponse(Integer code, String msg) {
-        return createResponse(code, msg, null);
+    public static CommonResponse error(int code, String msg) {
+        return response(code, msg, null);
     }
 
-    public static CommonResponse createResponse(Integer code, String msg, Object data) {
+    public static CommonResponse response(Integer code, String msg) {
+        return response(code, msg, null);
+    }
+
+    public static CommonResponse response(Integer code, String msg, Object data) {
         CommonResponse commonResponse = new CommonResponse();
         commonResponse.setCode(code);
         commonResponse.setMsg(msg);

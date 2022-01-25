@@ -72,7 +72,7 @@ public class UserController {
     public CommonResponse deleteUser(@RequestParam("id") Integer id) {
         log.info("deleteUser，id = {}", id);
         userService.deleteUser(id);
-        return CommonResponse.successResponse(null);
+        return CommonResponse.success(null);
     }
 
 
