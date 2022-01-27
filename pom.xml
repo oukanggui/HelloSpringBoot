@@ -37,21 +37,26 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--集成MyBatis操作数据库-->
+        <!--MyBatis:操作数据库-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <!--Lombok-->
+        <!--Lombok:日志组件-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!--Redis-->
+        <!--Redis:数据缓存，适合高并发-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--Quartz：做定时任务-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
     </dependencies>
