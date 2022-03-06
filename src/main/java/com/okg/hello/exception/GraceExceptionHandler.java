@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Author:oukanggui
  * Date: 2022-03-06
  * Describe:统一异常处理器（基于Spring的AOP原理）
- * 可以针对异常自定义去捕获和处理，返回指定的类型（如Json类型）到前端
+ * 可以针对异常自定义去捕获和处理，对某种异常，统一返回指定的类型（如Json类型）到前端
  */
 @ControllerAdvice
 public class GraceExceptionHandler {
@@ -24,7 +24,15 @@ public class GraceExceptionHandler {
      */
     @ExceptionHandler(FileSizeLimitExceededException.class)
     @ResponseBody
-    public CommonResponse returnMaxFileSizeLimit() {
+    public CommonResponse returnMaxFileSizeLimit(FileSizeLimitExceededException e) {
         return CommonResponse.error(500, "文件大小不能超过500KB");
     }
+
+    @ExceptionHandler(MyCustomException.class)
+    @ResponseBody
+    public CommonResponse returnMyCustomException(MyCustomException e) {
+        return CommonResponse.error(500, e.getMessage());
+    }
+
+
 }
