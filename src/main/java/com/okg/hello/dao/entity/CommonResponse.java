@@ -1,38 +1,28 @@
 package com.okg.hello.dao.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  * 统一响应类
  */
+@Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommonResponse {
-    // 返回码
+    // 返回码,业务响应状态，成功为200
     private Integer code;
-    // 返回描述
+    // 返回描述，一般需要定义枚举类，定义code和msg的对应关系
     private String msg;
     // 返回数据，根据不同的请求返回不同的数据类型
     private Object data;
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
+    // 响应成功，返回数据为空，接口不关注返回数据
+    public static CommonResponse success() {
+        return success(null);
     }
 
     public static CommonResponse success(Object data) {
@@ -52,10 +42,6 @@ public class CommonResponse {
     }
 
     public static CommonResponse response(Integer code, String msg, Object data) {
-        CommonResponse commonResponse = new CommonResponse();
-        commonResponse.setCode(code);
-        commonResponse.setMsg(msg);
-        commonResponse.setData(data);
-        return commonResponse;
+        return new CommonResponse(code, msg, data);
     }
 }

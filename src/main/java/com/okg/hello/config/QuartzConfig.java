@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Quartz定时组件配置类，主要用于定于任务详情和任务触发器
+ * Quartz定时组件配置类，主要用于定义（配置）任务详情和任务触发器
  */
 @Configuration
 public class QuartzConfig {

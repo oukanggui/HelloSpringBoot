@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--SpringBoot工程需要继承的父工程-->
+    <!--SpringBoot工程需要继承的父工程SpringBoot启动器,会含有很多starter启动器组件子工程，有需要时去引入即可-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!--Web开发的起步依赖-->
+        <!--SpringBoot Web开发的起步依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -29,21 +29,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <!--使用mysql数据库，mysql数据库驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <!--MyBatis:操作数据库-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <!--Lombok:日志组件-->
+        <!--Lombok:用于提高开发效率：
+     通过@Data注解实体类，自动生成实体类属性的get和set方法
+     通过@ToString注解实体类，自动实现和生成toString方法
+     通过@NoArgsContructor和@AllArgsConstructor生成默认的无参构造函数和全参数构造函数
+     通过@Slf4j注释（整合了日志框架），简单实用log实现日志输出，不用再自己通过日志工厂创建Logger实例
+     -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
