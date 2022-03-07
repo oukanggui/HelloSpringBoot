@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Date: 2022-03-06
  * Describe:统一异常处理器（基于Spring的AOP原理）
  * 可以针对异常自定义去捕获和处理，对某种异常，统一返回指定的类型（如Json类型）到前端
+ * 需要使用@ControllerAdvice注释
  */
 @ControllerAdvice
-public class GraceExceptionHandler {
+public class GlobalExceptionHandler {
 
     /**
      * 统一拦截文件大小超出设置值的异常,当该异常发生时，返回统一的Json数据给前端处理
