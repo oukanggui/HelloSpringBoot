@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 对用户表进行增删查改
  */
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;

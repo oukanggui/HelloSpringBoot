@@ -2,7 +2,7 @@ package com.okg.hello.controller;
 
 import com.okg.hello.dao.entity.User;
 import com.okg.hello.dao.entity.CommonResponse;
-import com.okg.hello.service.user.UserServiceImpl;
+import com.okg.hello.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     /**
      * 获取用户列表

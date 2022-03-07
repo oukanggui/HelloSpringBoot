@@ -6,7 +6,7 @@ import com.okg.hello.dao.entity.CommonResponse;
 /**
  * 登录业务层用户操作接口
  */
-public interface IUserService {
+public interface UserService {
     CommonResponse queryUser(int id);
     CommonResponse queryAllUsers();
     CommonResponse deleteUser(int id);
