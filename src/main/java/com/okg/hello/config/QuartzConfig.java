@@ -1,6 +1,6 @@
 package com.okg.hello.config;
 
-import com.okg.hello.task.QuartzTask;
+import com.okg.hello.job.QuartzJob;
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class QuartzConfig {
     @Bean
     public JobDetail quartzDetail() {
         //指定job的名称和持久化保存任务
-        return JobBuilder.newJob(QuartzTask.class).withIdentity(DEMO_TASK_IDENTITY).storeDurably().build();
+        return JobBuilder.newJob(QuartzJob.class).withIdentity(DEMO_TASK_IDENTITY).storeDurably().build();
     }
 
     /**
