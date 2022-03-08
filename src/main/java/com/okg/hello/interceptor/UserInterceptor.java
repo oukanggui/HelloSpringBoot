@@ -1,4 +1,4 @@
-package com.okg.hello.controller.interceptor;
+package com.okg.hello.interceptor;
 
 import com.okg.hello.exception.MyCustomException;
 import lombok.extern.slf4j.Slf4j;

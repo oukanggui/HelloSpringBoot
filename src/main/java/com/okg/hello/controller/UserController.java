@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController // @ResponseBody+@Controller的结合注解
-@RequestMapping(value = "user")
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class UserController {
      *
      * @return
      */
-    @GetMapping(value = "getUserList")
+    @GetMapping(value = "/getUserList")
     public CommonResponse getUserList() {
         log.info("getUserList");
         return userService.queryAllUsers();
@@ -44,7 +44,7 @@ public class UserController {
      *
      * @return
      */
-    @GetMapping(value = "getUserInfo")
+    @GetMapping(value = "/getUserInfo")
     public CommonResponse getUserInfo(@RequestParam("id") Integer id) {
         log.info("getUserInfo，id = {}", id);
         return userService.queryUser(id);
@@ -54,7 +54,7 @@ public class UserController {
      * 删除用户信息
      * 这里分别用过@RequestHeader和@CookiesValue注解分别获取请求头参数和cookies参数
      */
-    @GetMapping(value = "delete")
+    @GetMapping(value = "/delete")
     public CommonResponse deleteUser(@RequestParam("id") Integer id,
                                      @RequestHeader("token") String token,
                                      @CookieValue("clientId") String clientId,
@@ -72,7 +72,7 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping(value = "login")
+    @PostMapping(value = "/login")
     public CommonResponse login(@RequestBody User user) {
         log.info("login：{}", user.toString());
         return userService.login(user);
@@ -84,7 +84,7 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping(value = "register")
+    @PostMapping(value = "/register")
     public CommonResponse register(User user) {
         log.info("register：{}", user.toString());
         return userService.register(user);
