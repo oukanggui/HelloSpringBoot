@@ -23,12 +23,12 @@ public interface UserMapper {
     /**
      * 通过用户id查询User对象
      */
-    User queryUserById(int id);
+    List<User> queryUserById(int id);
 
     /**
      * 根据用户名查找用户信息
      */
-    User queryUserByName(String userName);
+    List<User> queryUserByName(String userName);
 
     /**
      * 添加用户

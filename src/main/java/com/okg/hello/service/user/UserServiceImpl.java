@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 /**
  * 业务层：登录服务实现类，处理登录业务逻辑
@@ -37,18 +39,20 @@ public class UserServiceImpl implements UserService {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在
-        User existUser = userMapper.queryUserByName(user.getUserName());
-        if (existUser == null) {
+        List<User> userList = userMapper.queryUserByName(user.getUserName());
+        if (userList == null || userList.isEmpty()) {
             // 用户不存在
             return CommonResponse.response(10001, "用户不存在，请先注册");
         }
+        // 取第一个用户
+        User resultUser = userList.get(0);
         // 判断密码是否正确
-        if (!user.getPassword().equals(existUser.getPassword())) {
+        if (!user.getPassword().equals(resultUser.getPassword())) {
             // 密码不正确
             return CommonResponse.response(10002, "密码错误，请输入正确密码！");
         }
         // 登录成功
-        return CommonResponse.success("登录成功", existUser);
+        return CommonResponse.success("登录成功", resultUser);
     }
 
     @Transactional
@@ -59,18 +63,14 @@ public class UserServiceImpl implements UserService {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在(已被注册)
-        User existUser = userMapper.queryUserByName(user.getUserName());
-        if (existUser != null) {
+        List<User> userList = userMapper.queryUserByName(user.getUserName());
+        if (userList != null && !userList.isEmpty()) {
             // 用户已存在
             return CommonResponse.response(10001, "该用户名称已存在，请换一个名称");
         }
         // 插入数据库
-        try {
-            userMapper.addUser(user);
-            return CommonResponse.success("注册成功");
-        } catch (Exception e) {
-            return CommonResponse.response(10002, "系统异常，请联系系统管理员");
-        }
+        userMapper.addUser(user);
+        return CommonResponse.success("注册成功");
     }
 
     @Transactional
