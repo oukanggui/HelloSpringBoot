@@ -5,6 +5,7 @@ import com.okg.hello.dao.entity.CommonResponse;
 import com.okg.hello.dao.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
         return CommonResponse.success(userMapper.queryAllUsers());
     }
 
+    @Transactional
     @Override
     public CommonResponse login(User user) {
         // 数据合法性判断
@@ -49,6 +51,7 @@ public class UserServiceImpl implements UserService {
         return CommonResponse.success("登录成功", existUser);
     }
 
+    @Transactional
     @Override
     public CommonResponse register(User user) {
         // 数据合法性判断
@@ -70,6 +73,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Transactional
     @Override
     public CommonResponse deleteUser(int id) {
         userMapper.deleteUser(id);
