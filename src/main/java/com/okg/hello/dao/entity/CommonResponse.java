@@ -1,5 +1,6 @@
 package com.okg.hello.dao.entity;
 
+import com.okg.hello.enums.GlobalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommonResponse {
-    // 返回码,业务响应状态，成功为200
+    // 返回码,业务响应状态，成功为0
     private Integer code;
     // 返回描述，一般需要定义枚举类，定义code和msg的对应关系
     private String msg;
@@ -26,11 +27,11 @@ public class CommonResponse {
     }
 
     public static CommonResponse success(Object data) {
-        return success("success", data);
+        return success(GlobalStatus.REQUEST_SUCCESS.getMsg(), data);
     }
 
     public static CommonResponse success(String msg, Object data) {
-        return response(200, msg, data);
+        return response(GlobalStatus.REQUEST_SUCCESS.getCode(), msg, data);
     }
 
     public static CommonResponse error(int code, String msg) {
