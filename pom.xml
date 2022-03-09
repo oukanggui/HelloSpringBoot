@@ -41,7 +41,7 @@
             <version>2.2.0</version>
         </dependency>
         <!--Lombok:用于提高开发效率：
-            通过@Data注解实体类，自动生成实体类属性的get和set方法
+            通过@Data注解实体类，自动生成实体类属性的get和set方法，或使用@Getter或@Setter方法单独设置get或set方法
             通过@ToString注解实体类，自动实现和生成toString方法
             通过@NoArgsContructor和@AllArgsConstructor生成默认的无参构造函数和全参数构造函数
             通过@Slf4j注释（整合了日志框架），简单实用log实现日志输出，不用再自己通过日志工厂创建Logger实例
