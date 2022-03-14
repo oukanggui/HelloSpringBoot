@@ -9,7 +9,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum GlobalStatus {
+public enum GlobalStatusEnum {
     REQUEST_SUCCESS(0, "success"),
     TOKEN_ERROR(10001, "token错误");
 
