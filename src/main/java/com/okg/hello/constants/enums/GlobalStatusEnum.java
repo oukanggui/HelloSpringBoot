@@ -1,4 +1,4 @@
-package com.okg.hello.enums;
+package com.okg.hello.constants.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +10,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum GlobalStatusEnum {
-    REQUEST_SUCCESS(0, "success"),
-    TOKEN_ERROR(10001, "token错误");
+    SUCCESS(0, "success"),
+    TOKEN_ERROR(10001, "token错误"),
+    SYS_ERROR(500, "系统发生异常");
 
     private Integer code;
     private String msg;

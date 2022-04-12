@@ -13,12 +13,12 @@
     <artifactId>springboot-hello</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>HelloSpringBoot</name>
-    <description>HelloSpringBoot</description>
+    <description>Demo Project For SpringBoot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!--SpringBoot Web开发的起步依赖-->
+        <!--SpringBoot Web开发的起步依赖，实现对SpringMVC的自动化配置。同时该依赖会自动帮我们引入SpringMVC等相关依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

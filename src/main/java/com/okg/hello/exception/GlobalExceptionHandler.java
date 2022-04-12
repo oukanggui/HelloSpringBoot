@@ -1,5 +1,6 @@
 package com.okg.hello.exception;
 
+import com.okg.hello.constants.enums.GlobalStatusEnum;
 import com.okg.hello.dao.entity.CommonResponse;
 import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,23 +18,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
 
     /**
-     * 统一拦截文件大小超出设置值的异常,当该异常发生时，返回统一的Json数据给前端处理
-     * 通过@ExceptionHandler注解标明该方法需要拦截的异常
-     * 通过@ResponseBody注解标明返回的是Json格式数据
+     * 处理自定义业务异常异常
      *
+     * @param e
+     * @return
+     * @ExceptionHandler注解 指定需要拦截处理的异常
+     * @ResponseBody注解 标记直接使用返回结果作为API的响应
+     */
+    @ExceptionHandler(ServiceException.class)
+    @ResponseBody
+    public CommonResponse handleServiceException(ServiceException e) {
+        return CommonResponse.error(e.getCode(), e.getMessage());
+    }
+
+    /**
+     * 处理其他异常
+     *
+     * @param e
      * @return
      */
-    @ExceptionHandler(FileSizeLimitExceededException.class)
+    @ExceptionHandler(Exception.class)
     @ResponseBody
-    public CommonResponse returnMaxFileSizeLimit(FileSizeLimitExceededException e) {
-        return CommonResponse.error(500, "文件大小不能超过500KB");
+    public CommonResponse handleException(Exception e) {
+        return CommonResponse.error(GlobalStatusEnum.SYS_ERROR.getCode(), GlobalStatusEnum.SYS_ERROR.getMsg());
     }
-
-    @ExceptionHandler(MyCustomException.class)
-    @ResponseBody
-    public CommonResponse returnMyCustomException(MyCustomException e) {
-        return CommonResponse.error(500, e.getMessage());
-    }
-
 
 }

@@ -1,6 +1,6 @@
 package com.okg.hello.dao.entity;
 
-import com.okg.hello.enums.GlobalStatusEnum;
+import com.okg.hello.constants.enums.GlobalStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,11 +27,11 @@ public class CommonResponse {
     }
 
     public static CommonResponse success(Object data) {
-        return success(GlobalStatusEnum.REQUEST_SUCCESS.getMsg(), data);
+        return success(GlobalStatusEnum.SUCCESS.getMsg(), data);
     }
 
     public static CommonResponse success(String msg, Object data) {
-        return response(GlobalStatusEnum.REQUEST_SUCCESS.getCode(), msg, data);
+        return response(GlobalStatusEnum.SUCCESS.getCode(), msg, data);
     }
 
     public static CommonResponse error(int code, String msg) {
