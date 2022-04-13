@@ -18,7 +18,12 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!--SpringBoot Web开发的起步依赖，实现对SpringMVC的自动化配置。同时该依赖会自动帮我们引入SpringMVC等相关依赖-->
+        <!--SpringBoot Web开发的起步依赖，实现对SpringMVC的自动化配置。同时该依赖会自动帮我们引入SpringMVC等相关依赖
+        1、Tomcat、Jetty容器
+        2、常用的注解@Controller、@ControllerAdvice(Controller AOP切面变成拦截)、@RequestMapping等常用注解
+        3、SpringMVC自动化配置
+        4、拦截器等等其他
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
