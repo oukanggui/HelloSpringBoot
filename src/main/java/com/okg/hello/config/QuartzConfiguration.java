@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * Quartz定时组件配置类，主要用于定义（配置）任务详情和任务触发器
  */
 @Configuration
-public class QuartzConfig {
+public class QuartzConfiguration {
     private static final String DEMO_TASK_IDENTITY = "demoTaskQuartz";
 
     /**

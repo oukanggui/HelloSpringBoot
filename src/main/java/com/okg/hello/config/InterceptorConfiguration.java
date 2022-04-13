@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 方法通过@Bean注视返回配置类的Bean对象，其生命周期由Spring管理，默认为全局单例
  */
 @Configuration
-public class InterceptorConfig implements WebMvcConfigurer {
+public class InterceptorConfiguration implements WebMvcConfigurer {
 
     @Bean
     public UserInterceptor userInterceptor() {

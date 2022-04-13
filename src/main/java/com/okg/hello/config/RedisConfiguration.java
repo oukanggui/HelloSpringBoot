@@ -14,7 +14,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * Redis配置类，主要是从RedisAutoConfiguration复制模板过来，为了平时开发方便，统一修改成适合自己的RedisTemplate<String,Object>，并对Redis的Key和value进行序列化存储
  */
 @Configuration
-public class RedisConfig {
+public class RedisConfiguration {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
