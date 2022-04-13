@@ -11,7 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Date: 2022-03-06
  * Describe:拦截器配置类
  * 需要实现WebMvcConfigurer类，重写相关方法进行拦截器注册及对应的规则配置
- * 通过@Configuration注释表明这个类是一个配置类，方法通过@Bean注视返回配置类的Bean对象，其生命周期由Spring管理，默认为全局单例
+ * 通过@Configuration注释表明这个类是一个Spring配置类
+ * 方法通过@Bean注视返回配置类的Bean对象，其生命周期由Spring管理，默认为全局单例
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {

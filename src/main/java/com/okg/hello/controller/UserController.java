@@ -1,6 +1,6 @@
 package com.okg.hello.controller;
 
-import com.okg.hello.dao.entity.User;
+import com.okg.hello.dao.entity.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 import com.okg.hello.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +18,11 @@ import javax.servlet.http.HttpServletRequest;
  * @RequestBody：请求体Body参数（一般是实体Bean参数或Map对象，用于Post请求），如果用于实体类，该注解可以省略
  * @RequestHeader：请求头参数
  * @CookiesValue：cookies参数
+ *
+ * 分层结构中，每一层都有自己的领域模型，即不同的数据对象Bean
+ * DO（Data Object）：数据对象，与数据库表结构一一对应，通过DAO层向上传输的数据源对象
+ * DTO（Data Transfer Object）：数据传输对象，Service/Controller层向外传输的对象
+ * BO（Business Object）：业务对象，由Service层输出的封装业务逻辑的对象
  */
 @Slf4j
 @RestController // @ResponseBody+@Controller的结合注解
@@ -69,25 +74,25 @@ public class UserController {
      * 登录
      * Post请求接收实体类参数时，可以省略@RequestBody参数
      *
-     * @param user
+     * @param userDO
      * @return
      */
     @PostMapping(value = "/login")
-    public CommonResponse login(@RequestBody User user) {
-        log.info("login：{}", user.toString());
-        return userService.login(user);
+    public CommonResponse login(@RequestBody UserDO userDO) {
+        log.info("login：{}", userDO.toString());
+        return userService.login(userDO);
     }
 
     /**
      * 注册
      *
-     * @param user
+     * @param userDO
      * @return
      */
     @PostMapping(value = "/register")
-    public CommonResponse register(User user) {
-        log.info("register：{}", user.toString());
-        return userService.register(user);
+    public CommonResponse register(UserDO userDO) {
+        log.info("register：{}", userDO.toString());
+        return userService.register(userDO);
     }
 
 }

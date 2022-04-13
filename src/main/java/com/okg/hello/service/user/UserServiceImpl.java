@@ -1,6 +1,6 @@
 package com.okg.hello.service.user;
 
-import com.okg.hello.dao.entity.User;
+import com.okg.hello.dao.entity.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 import com.okg.hello.dao.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,43 +33,43 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public CommonResponse login(User user) {
+    public CommonResponse login(UserDO userDO) {
         // 数据合法性判断
-        if (user == null || user.getUserName() == null || user.getUserName().isEmpty() || user.getPassword() == null || user.getPassword().isEmpty()) {
+        if (userDO == null || userDO.getUserName() == null || userDO.getUserName().isEmpty() || userDO.getPassword() == null || userDO.getPassword().isEmpty()) {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在
-        List<User> userList = userMapper.queryUserByName(user.getUserName());
-        if (userList == null || userList.isEmpty()) {
+        List<UserDO> userDOList = userMapper.queryUserByName(userDO.getUserName());
+        if (userDOList == null || userDOList.isEmpty()) {
             // 用户不存在
             return CommonResponse.response(10001, "用户不存在，请先注册");
         }
         // 取第一个用户
-        User resultUser = userList.get(0);
+        UserDO resultUserDO = userDOList.get(0);
         // 判断密码是否正确
-        if (!user.getPassword().equals(resultUser.getPassword())) {
+        if (!userDO.getPassword().equals(resultUserDO.getPassword())) {
             // 密码不正确
             return CommonResponse.response(10002, "密码错误，请输入正确密码！");
         }
         // 登录成功
-        return CommonResponse.success("登录成功", resultUser);
+        return CommonResponse.success("登录成功", resultUserDO);
     }
 
     @Transactional
     @Override
-    public CommonResponse register(User user) {
+    public CommonResponse register(UserDO userDO) {
         // 数据合法性判断
-        if (user == null || user.getUserName() == null || user.getUserName().isEmpty() || user.getPassword() == null || user.getPassword().isEmpty()) {
+        if (userDO == null || userDO.getUserName() == null || userDO.getUserName().isEmpty() || userDO.getPassword() == null || userDO.getPassword().isEmpty()) {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在(已被注册)
-        List<User> userList = userMapper.queryUserByName(user.getUserName());
-        if (userList != null && !userList.isEmpty()) {
+        List<UserDO> userDOList = userMapper.queryUserByName(userDO.getUserName());
+        if (userDOList != null && !userDOList.isEmpty()) {
             // 用户已存在
             return CommonResponse.response(10001, "该用户名称已存在，请换一个名称");
         }
         // 插入数据库
-        userMapper.addUser(user);
+        userMapper.addUser(userDO);
         return CommonResponse.success("注册成功");
     }
 

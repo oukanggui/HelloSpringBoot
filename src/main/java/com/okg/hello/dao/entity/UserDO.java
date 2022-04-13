@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString // 自动生成toString方法
 @NoArgsConstructor // 自动生成无参数的默认构造方法
 @AllArgsConstructor // 自动生成全参数构造方法
-public class User {
+public class UserDO {
     private Integer id;
     private String userName;
     private String password;

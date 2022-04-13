@@ -1,6 +1,6 @@
 package com.okg.hello.service.user;
 
-import com.okg.hello.dao.entity.User;
+import com.okg.hello.dao.entity.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 
 /**
@@ -33,16 +33,16 @@ public interface UserService {
     /**
      * 用户登录
      *
-     * @param user
+     * @param userDO
      * @return
      */
-    CommonResponse login(User user);
+    CommonResponse login(UserDO userDO);
 
     /**
      * 用户注册
      *
-     * @param user
+     * @param userDO
      * @return
      */
-    CommonResponse register(User user);
+    CommonResponse register(UserDO userDO);
 }
