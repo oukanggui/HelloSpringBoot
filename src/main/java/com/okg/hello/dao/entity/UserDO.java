@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * 用户实体类，并完成实体类与数据库user表的映射
+ * 用户数据库实体对象，与数据库user表的映射
  */
 @Data    // 自动生成getter和setter方法
 @ToString // 自动生成toString方法
