@@ -1,6 +1,6 @@
 package com.okg.hello.dao.mapper;
 
-import com.okg.hello.dao.entity.UserDO;
+import com.okg.hello.dao.entity.dataobject.UserDO;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

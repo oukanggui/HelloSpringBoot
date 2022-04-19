@@ -1,6 +1,6 @@
 package com.okg.hello.controller;
 
-import com.okg.hello.dao.entity.UserDO;
+import com.okg.hello.dao.entity.dataobject.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 import com.okg.hello.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
