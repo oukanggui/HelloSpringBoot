@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.okg.hello.dao.mapper.UserMapper">
-    <select id="queryAllUsers" resultType="com.okg.hello.dao.entity.UserDO">
+    <select id="selectAll" resultType="com.okg.hello.dao.entity.UserDO">
         SELECT id,userName,password
         FROM tb_user
     </select>
-    <select id="queryUserById"
+    <select id="selectById"
             parameterType="java.lang.Integer"
             resultType="com.okg.hello.dao.entity.UserDO">
         SELECT id,userName,password
         FROM tb_user
         WHERE id = #{id}
     </select>
-    <select id="queryUserByName"
+    <select id="selectByUserName"
             parameterType="java.lang.String"
             resultType="com.okg.hello.dao.entity.UserDO">
         SELECT id,userName,password
@@ -23,7 +23,7 @@
         INSERT INTO tb_user(userName, password)
         VALUES (#{userName}, #{password})
     </insert>
-    <delete id="deleteUser" parameterType="java.lang.Integer">
+    <delete id="deleteById" parameterType="java.lang.Integer">
         DELETE
         FROM tb_user
         WHERE id = #{id}

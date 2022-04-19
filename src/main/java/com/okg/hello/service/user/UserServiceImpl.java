@@ -23,12 +23,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public CommonResponse queryUser(int id) {
-        return CommonResponse.success(userMapper.queryUserById(id));
+        return CommonResponse.success(userMapper.selectById(id));
     }
 
     @Override
     public CommonResponse queryAllUsers() {
-        return CommonResponse.success(userMapper.queryAllUsers());
+        return CommonResponse.success(userMapper.selectAll());
     }
 
     @Transactional
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在
-        List<UserDO> userDOList = userMapper.queryUserByName(userDO.getUserName());
+        List<UserDO> userDOList = userMapper.selectByUserName(userDO.getUserName());
         if (userDOList == null || userDOList.isEmpty()) {
             // 用户不存在
             return CommonResponse.response(10001, "用户不存在，请先注册");
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
             return CommonResponse.response(10000, "账号或密码不能为空");
         }
         // 查看用户是否存在(已被注册)
-        List<UserDO> userDOList = userMapper.queryUserByName(userDO.getUserName());
+        List<UserDO> userDOList = userMapper.selectByUserName(userDO.getUserName());
         if (userDOList != null && !userDOList.isEmpty()) {
             // 用户已存在
             return CommonResponse.response(10001, "该用户名称已存在，请换一个名称");
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public CommonResponse deleteUser(int id) {
-        userMapper.deleteUser(id);
+        userMapper.deleteById(id);
         return CommonResponse.success(null);
     }
 }
