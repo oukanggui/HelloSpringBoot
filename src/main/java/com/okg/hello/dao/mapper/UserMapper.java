@@ -1,6 +1,6 @@
 package com.okg.hello.dao.mapper;
 
-import com.okg.hello.dao.entity.UserDO;
+import com.okg.hello.dao.entity.dataobject.UserDO;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -18,17 +18,17 @@ public interface UserMapper {
      *
      * @return
      */
-    List<UserDO> queryAllUsers();
+    List<UserDO> selectAll();
 
     /**
      * 通过用户id查询User对象
      */
-    List<UserDO> queryUserById(int id);
+    List<UserDO> selectById(int id);
 
     /**
      * 根据用户名查找用户信息
      */
-    List<UserDO> queryUserByName(String userName);
+    List<UserDO> selectByUserName(String userName);
 
     /**
      * 添加用户
@@ -38,7 +38,7 @@ public interface UserMapper {
     /**
      * 删除用户
      */
-    void deleteUser(int id);
+    void deleteById(int id);
 
 
 }

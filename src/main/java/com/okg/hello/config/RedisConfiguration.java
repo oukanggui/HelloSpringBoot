@@ -18,7 +18,7 @@ public class RedisConfiguration {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        //为了平时开发方便,使用<String,Object>
+        //创建 RedisTemplate 对象，提供了统一的操作模板，为了平时开发方便,使用<String,Object>
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         //连接Redis工厂
         template.setConnectionFactory(redisConnectionFactory);

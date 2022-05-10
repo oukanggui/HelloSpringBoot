@@ -1,6 +1,6 @@
 package com.okg.hello.controller;
 
-import com.okg.hello.dao.entity.UserDO;
+import com.okg.hello.dao.entity.dataobject.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 import com.okg.hello.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * DO（Data Object）：数据对象，与数据库表结构一一对应，通过DAO层向上传输的数据源对象
  * DTO（Data Transfer Object）：数据传输对象，Service/Controller层向外传输的对象
  * BO（Business Object）：业务对象，由Service层输出的封装业务逻辑的对象
+ * VO（View Object）：显示层对象，通常是Web向模板渲染引擎层传输的对象，也就是client端传给Controller的对象
  */
 @Slf4j
 @RestController // @ResponseBody+@Controller的结合注解

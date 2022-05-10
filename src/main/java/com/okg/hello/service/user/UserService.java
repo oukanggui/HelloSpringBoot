@@ -1,6 +1,6 @@
 package com.okg.hello.service.user;
 
-import com.okg.hello.dao.entity.UserDO;
+import com.okg.hello.dao.entity.dataobject.UserDO;
 import com.okg.hello.dao.entity.CommonResponse;
 
 /**
