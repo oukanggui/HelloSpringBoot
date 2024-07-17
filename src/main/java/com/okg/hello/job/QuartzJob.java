@@ -16,7 +16,7 @@ import java.util.Date;
 @Component //QuartzJob任务类交给spring容器管理
 public class QuartzJob extends QuartzJobBean {
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
